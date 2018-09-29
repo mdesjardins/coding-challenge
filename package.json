@@ -1,0 +1,19 @@
+{
+  "name": "coding-challenge",
+  "version": "0.0.1",
+  "description": "Coding Challenge for an Employer",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "mike.desjardins@cereslogic.com",
+  "dependencies": {
+    "jest": "23.6.0",
+    "jquery": "3.3.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./spec/spec_helper.js"
+    ]
+  }
+}

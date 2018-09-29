@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coding Challenge Example</title>
+  <link rel="stylesheet" href="https://threads.plaid.com/threads.css">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="plaid_env" content="<%= ENV['PLAID_ENV'] %>">
+  <meta name="plaid_public_key" content="<%= ENV['PLAID_PUBLIC_KEY'] %>">
+</head>
+<body>
+  <main class="main">
+    <div class="grid">
+      <div class="grid__column grid__column--is-twelve-columns">
+        <div id="banner" class="everpresent-content">
+          <h1 class="everpresent-content__heading">Coding Challenge</h1>
+          <p id="intro" class="everpresent-content__subheading">
+            An example application that outlines an end-to-end integration with Plaid and Clearbit
+          </p>
+          <p id="steps" class="everpresent-content__subheading">
+           Success! You just created an Item by linking your account.
+          </p>
+        </div>
+
+        <div id="container" class="initial-view">
+          <p class="initial-view__description">
+            Click the button below to open a list of Institutions. After you select one, you’ll be guided through an authentication process. Upon completion, a public_token will be passed back to the server and exchanged for access_token.
+          </p>
+
+          <button id="link-btn" class="button button--is-primary">Connect Your Bank Account</button>
+        </div>
+
+        <div id="app" class="connected-view">
+          <div class="item-overview">
+            <div class="item-overview__column">
+              <h3 class="item-overview__heading">item_id</h3>
+              <p class="item-overview__id" id="item_id">san.asjsansakjsakjasjksajkas</p>
+            </div>
+            <div class="item-overview__column">
+              <h3 class="item-overview__heading">access_token</h3>
+              <p class="item-overview__id" id="access_token">••••••••hsakjsl</p>
+            </div>
+
+            <div style="clear: both"></div>
+          </div>
+
+          <div class="box">
+            <h3 class="box__heading">Transactions</h3>
+            <div class="item-data-row__response">
+              <table>
+                <tbody id="get-transactions-data"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    const clearbit = new Clearbit(Plaid,'<%= ENV["PLAID_ENV"] %>', '<%= ENV["PLAID_PUBLIC_KEY"] %>');
+  </script>
+</body>
+</html>
